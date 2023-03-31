@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
-  "description": "React toast notifications with minimum bundle size.",
+  "description": "Preact toast notifications with minimum bundle size.",
   "author": "ashr81",
   "license": "MIT",
   "workspaces": {
