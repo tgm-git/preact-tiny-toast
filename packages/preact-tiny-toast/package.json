@@ -11,15 +11,14 @@
     ]
   },
   "types": "lib/types/preact-tiny-toast.d.ts",
-  "dependencies": {
-    "preact": "^10.13.2"
-  },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/preset-typescript": "^7.10.4",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "yarn": "^1.22.19"
   },
   "peerDependencies": {
+    "preact": "^10.15.0"
   },
   "scripts": {
     "start": "tsc -w",

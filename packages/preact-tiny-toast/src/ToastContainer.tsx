@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useRef } from 'preact/hooks';
-import { h, Component, render, FunctionComponent } from "preact";
+import { Component, render, FunctionComponent, VNode } from "preact";
 import { toastManager } from './toast';
 import './index.css';
 import { actionTypes, optionTypes, contentTypes } from './types/preact-tiny-toast';
@@ -8,12 +8,13 @@ const ADD = 'ADD';
 const REMOVE = 'REMOVE';
 
 interface PortalProps {
-    children: (node: Element | null) => preact.VNode | null;
+    children: (node: Element | null) => VNode | null;
 }
 
 
 class Portal extends Component<PortalProps> {
   defaultNode: HTMLDivElement | null = null;
+  toastRootElementId = 'preact-tiny-toast-main-container';
   componentDidMount() {
     this.renderPortal();
   }
@@ -31,12 +32,21 @@ class Portal extends Component<PortalProps> {
 
   renderPortal() {
     if (!this.defaultNode) {
-      this.defaultNode = document.createElement('div');
-      document.body.appendChild(this.defaultNode);
+      // Check if an element with the specified id already exists
+      let existingNode = document.getElementById(this.toastRootElementId) as HTMLDivElement;
+      if (existingNode) {
+        // If the element already exists, use it
+        this.defaultNode = existingNode;
+      } else {
+        // If not, create a new div and add it to the document body
+        this.defaultNode = document.createElement('div');
+        this.defaultNode.id = this.toastRootElementId; // Set the id of the new div
+        document.body.appendChild(this.defaultNode);
+      }
     }
 
-    let children: ((node: Element | null) => preact.VNode<{}> | null) | preact.VNode<{}> | null = this.props.children;
-    let renderedChildren: preact.VNode | null;
+    let children: ((node: Element | null) => VNode<{}> | null) | VNode<{}> | null = this.props.children;
+    let renderedChildren: VNode | null;
 
 
     // Check if this.props.children is a function and call it with this.defaultNode.
@@ -82,9 +92,7 @@ const reducer = (state: StateTypes[], action: ActionsInterface) => {
 }
 
 const ToastContainer: FunctionComponent = () => {
-  const toastRootElementId = 'preact-tiny-toast-main-container'
-  const [data, dispatch] = useReducer(reducer, [])
-  const toastRef = useRef<Element | null>(null)
+  const [data, dispatch] = useReducer(reducer, []);
 
   const callback = (actionType: actionTypes, content: contentTypes, options: optionTypes) => {
     if(actionType === ADD) {
@@ -101,15 +109,7 @@ const ToastContainer: FunctionComponent = () => {
 
   useEffect(() => {
     toastManager.subscribe(callback)
-  }, [])
-
-  useEffect((): any => {
-    const node = document.createElement('div')
-    node.setAttribute('id', toastRootElementId)
-    document.body.appendChild(node)
-    toastRef.current = node;
-    return () => document.body.removeChild(node)
-  }, [])
+  }, []);
 
   const positionMaintainer = (): any => {
     const mapper: any = {}
@@ -142,11 +142,9 @@ const ToastContainer: FunctionComponent = () => {
     })
   }
 
-  if(!toastRef.current) return null;
   return (
       <Portal>
-        {(node) => {
-          toastRef.current = node;
+        {() => {
           const elements = markup();
           return (<>{elements}</>);
         }}
