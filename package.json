@@ -1,14 +1,13 @@
 {
-  "name": "root",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Preact toast notifications with minimum bundle size.",
-  "author": "ashr81",
-  "license": "MIT",
-  "workspaces": {
-    "packages": [
-      "packages/react-tiny-toast",
-      "packages/playground"
-    ]
-  }
+    "name": "root",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Preact toast notifications with minimum bundle size. Fork of react-tiny-toast",
+    "author": "ashr81, Thomas G. McCollin",
+    "license": "MIT",
+    "workspaces": {
+        "packages": [
+            "packages/preact-tiny-toast"
+        ]
+    }
 }
