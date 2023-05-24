@@ -1,5 +1,4 @@
-
-import { ReactChild, ReactNode } from "react";
+import { ComponentChildren } from 'preact';
 import { POSITIONS, VARIANTS, ACTIONS } from "..";
 import toast from '../toast';
 import ToastContainer from '../ToastContainer';
@@ -7,7 +6,7 @@ import ToastContainer from '../ToastContainer';
 export type variantTypes = typeof VARIANTS[keyof typeof VARIANTS];
 export type positionTypes = typeof POSITIONS[keyof typeof POSITIONS];
 export type actionTypes = typeof ACTIONS[keyof typeof ACTIONS];
-export type contentTypes = ReactChild | ReactNode | null;
+export type contentTypes = ComponentChildren;
 export interface ToastOptionsInterface {
   delay?: number;
   timeout?: number;

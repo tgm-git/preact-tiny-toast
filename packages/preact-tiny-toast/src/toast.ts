@@ -1,4 +1,4 @@
-import { contentTypes, callbackFuncTypes, ToastOptionsInterface } from './types/react-tiny-toast';
+import {callbackFuncTypes, contentTypes, ToastOptionsInterface} from './types/preact-tiny-toast';
 
 const defaultOptions: ToastOptionsInterface = {
   delay: 0,
@@ -7,23 +7,22 @@ const defaultOptions: ToastOptionsInterface = {
 }
 export const toastManager = (function() {
   let callbackFn: callbackFuncTypes;
-  const manager = {
+  return {
     subscribe(callback: callbackFuncTypes): void {
       callbackFn = callback;
     },
     add(content: contentTypes, options: ToastOptionsInterface) {
-      const mergedOptions = { ...defaultOptions, ...options };
+      const mergedOptions = {...defaultOptions, ...options};
       const timeoutId = window.setTimeout(() => {
         callbackFn('ADD', content, {...mergedOptions, id: timeoutId});
       }, mergedOptions.delay);
       return timeoutId;
     },
     remove(id: number) {
-      callbackFn('REMOVE', null, { id })
+      callbackFn('REMOVE', null, {id})
       return true;
     }
-  }
-  return manager;
+  };
 })();
 
 const toast = {

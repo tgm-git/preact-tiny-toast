@@ -1,0 +1,256 @@
+{
+  "program": {
+    "fileInfos": {
+      "./node_modules/typescript/lib/lib.d.ts": {
+        "version": "2dc8c927c9c162a773c6bb3cdc4f3286c23f10eedc67414028f9cb5951610f60",
+        "signature": "2dc8c927c9c162a773c6bb3cdc4f3286c23f10eedc67414028f9cb5951610f60",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "signature": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "signature": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+        "version": "7fac8cb5fc820bc2a59ae11ef1c5b38d3832c6d0dfaec5acdb5569137d09a481",
+        "signature": "7fac8cb5fc820bc2a59ae11ef1c5b38d3832c6d0dfaec5acdb5569137d09a481",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd",
+        "signature": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/preact/src/jsx.d.ts": {
+        "version": "8d384ad34a4e3feb3a57467b317e33821bac3f108405ae61784f399d7d501d1b",
+        "signature": "8d384ad34a4e3feb3a57467b317e33821bac3f108405ae61784f399d7d501d1b",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/preact/src/index.d.ts": {
+        "version": "fe07909b6c09957750bed556acb4b11cb3fdd0c634fa0645dcb66cb919db7e2d",
+        "signature": "fe07909b6c09957750bed556acb4b11cb3fdd0c634fa0645dcb66cb919db7e2d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/preact/hooks/src/index.d.ts": {
+        "version": "f7b88ad68531bc1963c8ba7cb3aea62383b486926d7ea9bd55211bd8d675757a",
+        "signature": "f7b88ad68531bc1963c8ba7cb3aea62383b486926d7ea9bd55211bd8d675757a",
+        "affectsGlobalScope": false
+      },
+      "./src/index.ts": {
+        "version": "51736b2e1c67dd60014b7a4df2f32f02724f7219c5060d86e2b251623035239a",
+        "signature": "49959dc40531294c61d2623f48486907ac780815e76f9869af8633b13ba9c375",
+        "affectsGlobalScope": false
+      },
+      "./src/types/preact-tiny-toast.ts": {
+        "version": "a3f21ef8a9615ab2fa9dadc5a0f3ec1164693c9559e316968b48516d50319e59",
+        "signature": "8316a8cbc79fb18e9aaccc1b58e4a8119aa962ad872ffc96d4a2d9c362461668",
+        "affectsGlobalScope": false
+      },
+      "./src/toast.ts": {
+        "version": "73a1e9af91aa3da9c87a6a3f9f138abd0cb0ddd66e4eddd9724e1cf250146af9",
+        "signature": "87cdca7d1b03c43e729316536d73c6514815536ef42451e0f9149c69a7bf0ff4",
+        "affectsGlobalScope": false
+      },
+      "./src/ToastContainer.tsx": {
+        "version": "a57a6bcf1653a9003486bed586f796d60b003856724c6865646b9e250bba83bf",
+        "signature": "133585a41b58183fdf248ae6dea075e05228e615447ddd67d0f0b963f24bac0a",
+        "affectsGlobalScope": false
+      }
+    },
+    "options": {
+      "composite": true,
+      "emitDeclarationOnly": true,
+      "configFilePath": "./tsconfig.json"
+    },
+    "referencedMap": {
+      "./node_modules/preact/hooks/src/index.d.ts": [
+        "./node_modules/preact/src/index.d.ts"
+      ],
+      "./node_modules/preact/src/index.d.ts": [
+        "./node_modules/preact/src/jsx.d.ts"
+      ],
+      "./node_modules/preact/src/jsx.d.ts": [
+        "./node_modules/preact/src/index.d.ts"
+      ],
+      "./src/ToastContainer.tsx": [
+        "./node_modules/preact/hooks/src/index.d.ts",
+        "./node_modules/preact/src/index.d.ts",
+        "./src/toast.ts",
+        "./src/types/preact-tiny-toast.ts"
+      ],
+      "./src/index.ts": [
+        "./src/toast.ts"
+      ],
+      "./src/toast.ts": [
+        "./src/types/preact-tiny-toast.ts"
+      ],
+      "./src/types/preact-tiny-toast.ts": [
+        "./node_modules/preact/src/index.d.ts",
+        "./src/index.ts",
+        "./src/toast.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "./node_modules/preact/hooks/src/index.d.ts": [
+        "./node_modules/preact/src/index.d.ts"
+      ],
+      "./node_modules/preact/src/index.d.ts": [
+        "./node_modules/preact/src/jsx.d.ts"
+      ],
+      "./node_modules/preact/src/jsx.d.ts": [
+        "./node_modules/preact/src/index.d.ts"
+      ],
+      "./src/ToastContainer.tsx": [
+        "./node_modules/preact/src/index.d.ts"
+      ],
+      "./src/index.ts": [
+        "./src/toast.ts"
+      ],
+      "./src/toast.ts": [
+        "./src/types/preact-tiny-toast.ts"
+      ],
+      "./src/types/preact-tiny-toast.ts": [
+        "./node_modules/preact/src/index.d.ts",
+        "./src/index.ts",
+        "./src/toast.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "./node_modules/preact/hooks/src/index.d.ts",
+      "./node_modules/preact/src/index.d.ts",
+      [
+        "./node_modules/preact/src/jsx.d.ts",
+        [
+          {
+            "file": "./node_modules/preact/src/jsx.d.ts",
+            "start": 26409,
+            "length": 21,
+            "messageText": "Cannot find name 'PictureInPictureEvent'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "./node_modules/preact/src/jsx.d.ts",
+            "start": 28056,
+            "length": 37,
+            "code": 2344,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type 'TargetedEvent<Target, any>' does not satisfy the constraint 'TargetedEvent<EventTarget, Event>'.",
+              "category": 1,
+              "code": 2344,
+              "next": [
+                {
+                  "messageText": "Type 'TargetedEvent<Target, any>' is missing the following properties from type 'Pick<Event, \"bubbles\" | \"cancelBubble\" | \"cancelable\" | \"composed\" | \"defaultPrevented\" | \"eventPhase\" | \"isTrusted\" | \"returnValue\" | \"srcElement\" | \"target\" | \"timeStamp\" | ... 9 more ... | \"NONE\">': bubbles, cancelBubble, cancelable, composed, and 17 more.",
+                  "category": 1,
+                  "code": 2740
+                }
+              ]
+            }
+          },
+          {
+            "file": "./node_modules/preact/src/jsx.d.ts",
+            "start": 71059,
+            "length": 15,
+            "messageText": "Cannot find name 'SVGMPathElement'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "./node_modules/preact/src/jsx.d.ts",
+            "start": 71372,
+            "length": 13,
+            "messageText": "Cannot find name 'SVGSetElement'.",
+            "category": 1,
+            "code": 2304
+          }
+        ]
+      ],
+      "./node_modules/typescript/lib/lib.d.ts",
+      "./node_modules/typescript/lib/lib.dom.d.ts",
+      "./node_modules/typescript/lib/lib.es5.d.ts",
+      "./node_modules/typescript/lib/lib.scripthost.d.ts",
+      "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      [
+        "./src/ToastContainer.tsx",
+        [
+          {
+            "file": "./src/ToastContainer.tsx",
+            "start": 3743,
+            "length": 113,
+            "messageText": "Cannot use JSX unless the '--jsx' flag is provided.",
+            "category": 1,
+            "code": 17004
+          },
+          {
+            "file": "./src/ToastContainer.tsx",
+            "start": 3944,
+            "length": 59,
+            "messageText": "Cannot use JSX unless the '--jsx' flag is provided.",
+            "category": 1,
+            "code": 17004
+          },
+          {
+            "file": "./src/ToastContainer.tsx",
+            "start": 4113,
+            "length": 8,
+            "messageText": "Cannot use JSX unless the '--jsx' flag is provided.",
+            "category": 1,
+            "code": 17004
+          },
+          {
+            "file": "./src/ToastContainer.tsx",
+            "start": 4114,
+            "length": 6,
+            "code": 2741,
+            "category": 1,
+            "messageText": "Property 'children' is missing in type '{}' but required in type 'PortalProps'.",
+            "relatedInformation": [
+              {
+                "file": "./src/ToastContainer.tsx",
+                "start": 348,
+                "length": 8,
+                "messageText": "'children' is declared here.",
+                "category": 3,
+                "code": 2728
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "./src/index.ts",
+        [
+          {
+            "file": "./src/index.ts",
+            "start": 56,
+            "length": 18,
+            "messageText": "Module './ToastContainer' was resolved to '/home/tgm/repos/preact-tiny-toast/packages/preact-tiny-toast/src/ToastContainer.tsx', but '--jsx' is not set.",
+            "category": 1,
+            "code": 6142
+          }
+        ]
+      ],
+      "./src/toast.ts",
+      [
+        "./src/types/preact-tiny-toast.ts",
+        [
+          {
+            "file": "./src/types/preact-tiny-toast.ts",
+            "start": 152,
+            "length": 19,
+            "messageText": "Module '../ToastContainer' was resolved to '/home/tgm/repos/preact-tiny-toast/packages/preact-tiny-toast/src/ToastContainer.tsx', but '--jsx' is not set.",
+            "category": 1,
+            "code": 6142
+          }
+        ]
+      ]
+    ]
+  },
+  "version": "3.9.10"
+}

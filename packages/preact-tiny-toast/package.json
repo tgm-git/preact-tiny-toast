@@ -1,31 +1,25 @@
 {
-  "name": "react-tiny-toast",
-  "version": "1.0.2",
+  "name": "preact-tiny-toast",
+  "version": "1.0.0",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
   "license": "MIT",
   "babel": {
     "presets": [
-      "@babel/react",
       "@babel/preset-typescript"
     ]
   },
-  "types": "lib/types/react-tiny-toast.d.ts",
+  "types": "lib/types/preact-tiny-toast.d.ts",
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "preact": "^10.13.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/react": "^16.9.41",
-    "@types/react-dom": "^16.9.8",
-    "typescript": "^3.9.6"
+    "typescript": "^5.0.2"
   },
   "peerDependencies": {
-    "react": ">=16.8.0 <17.0",
-    "react-dom": ">=16.8.0 <17.0"
   },
   "scripts": {
     "start": "tsc -w",
@@ -37,16 +31,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ashr81/react-tiny-toast.git",
-    "directory": "packages/react-tiny-toast"
+    "url": "https://github.com/tgm-git/preact-tiny-toast.git",
+    "directory": "packages/preact-tiny-toast"
   },
   "bugs": {
-    "url": "https://github.com/ashr81/react-tiny-toast/issues"
+    "url": "https://github.com/tgm-git/preact-tiny-toast/issues"
   },
-  "homepage": "https://github.com/ashr81/react-tiny-toast#readme",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+  "homepage": "https://github.com/tgm-git/preact-tiny-toast#readme",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -60,10 +51,10 @@
     ]
   },
   "keywords": [
-    "react",
-    "react-toast-notifications",
-    "react-notifications",
-    "react-tiny-toast",
+    "preact",
+    "preact-toast-notifications",
+    "preact-notifications",
+    "preact-tiny-toast",
     "toast-notifications"
   ]
 }

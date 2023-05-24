@@ -1,12 +1,62 @@
-import React, { useEffect, useReducer, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import { useEffect, useReducer, useRef } from 'preact/hooks';
+import { h, Component, render, FunctionComponent } from "preact";
 import { toastManager } from './toast';
 import './index.css';
-import { actionTypes, optionTypes, contentTypes } from './types/react-tiny-toast';
+import { actionTypes, optionTypes, contentTypes } from './types/preact-tiny-toast';
 
 const ADD = 'ADD';
 const REMOVE = 'REMOVE';
-interface stateTypes extends optionTypes {
+
+interface PortalProps {
+    children: (node: Element | null) => preact.VNode | null;
+}
+
+
+class Portal extends Component<PortalProps> {
+  defaultNode: HTMLDivElement | null = null;
+  componentDidMount() {
+    this.renderPortal();
+  }
+
+  componentDidUpdate() {
+    this.renderPortal();
+  }
+
+  componentWillUnmount() {
+    if (this.defaultNode) {
+      document.body.removeChild(this.defaultNode);
+      this.defaultNode = null;
+    }
+  }
+
+  renderPortal() {
+    if (!this.defaultNode) {
+      this.defaultNode = document.createElement('div');
+      document.body.appendChild(this.defaultNode);
+    }
+
+    let children: ((node: Element | null) => preact.VNode<{}> | null) | preact.VNode<{}> | null = this.props.children;
+    let renderedChildren: preact.VNode | null;
+
+
+    // Check if this.props.children is a function and call it with this.defaultNode.
+    if (typeof children === 'function') {
+      renderedChildren = children(this.defaultNode);
+    } else {
+      renderedChildren = children;
+    }
+
+    if (renderedChildren !== null) {
+      render(renderedChildren, this.defaultNode);
+    }
+  }
+
+  render() {
+    return null;
+  }
+}
+
+interface StateTypes extends optionTypes {
   content?: contentTypes;
 }
 
@@ -15,10 +65,10 @@ interface MapperValuesInterface extends optionTypes{
 }
 interface ActionsInterface {
   type: actionTypes;
-  data: stateTypes;
+  data: StateTypes;
 }
 
-const reducer = (state: stateTypes[], action: ActionsInterface) => {
+const reducer = (state: StateTypes[], action: ActionsInterface) => {
   const { type, data } = action;
   if(type === ADD) {
     if(state.filter(i => i.uniqueCode && i.uniqueCode === data.uniqueCode).length) {
@@ -31,10 +81,10 @@ const reducer = (state: stateTypes[], action: ActionsInterface) => {
   return state;
 }
 
-const ToastContainer = () => {
-  const toastRootElementId = 'react-tiny-toast-main-container'
+const ToastContainer: FunctionComponent = () => {
+  const toastRootElementId = 'preact-tiny-toast-main-container'
   const [data, dispatch] = useReducer(reducer, [])
-  const toastRef = useRef<HTMLDivElement | null>(null)
+  const toastRef = useRef<Element | null>(null)
 
   const callback = (actionType: actionTypes, content: contentTypes, options: optionTypes) => {
     if(actionType === ADD) {
@@ -63,7 +113,7 @@ const ToastContainer = () => {
 
   const positionMaintainer = (): any => {
     const mapper: any = {}
-    data.map(({ position, ...rest }: optionTypes) => {
+    data.forEach(({ position, ...rest }: optionTypes) => {
       if(position) {
         if(!mapper[position]) mapper[position] = []
         mapper[position].push(rest)
@@ -78,7 +128,11 @@ const ToastContainer = () => {
       const content = mapper[position].map(({ key, content, variant, className }: MapperValuesInterface) => {
         let animationCssClass = 'toast-item-animation-top';
         if(position.indexOf('bottom')) animationCssClass = 'toast-item-animation-bottom';
-        return (<div key={key} className={`toast-item toast-item-${variant} ${animationCssClass} ${className ? className : ''}`}>{content}</div>);
+        return (
+            <div key={key} className={`toast-item toast-item-${variant} ${animationCssClass} ${className ? className : ''}`}>
+              {content}
+            </div>
+        );
       });
       return (
         <div key={index} className={`toast-container ${position}`}>
@@ -89,10 +143,15 @@ const ToastContainer = () => {
   }
 
   if(!toastRef.current) return null;
-  return createPortal(
-    markup(),
-    toastRef.current
-  )
+  return (
+      <Portal>
+        {(node) => {
+          toastRef.current = node;
+          const elements = markup();
+          return (<>{elements}</>);
+        }}
+      </Portal>
+  );
 }
 
 export default ToastContainer;
