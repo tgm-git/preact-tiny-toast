@@ -26,6 +26,7 @@
     "build:js": "babel src --out-dir lib --copy-files --extensions \".ts,.tsx\"",
     "build:clean": "rm -rf lib",
     "build": "yarn build:clean && yarn build:types && yarn build:js",
+    "pub": "yarn build && npm publish",
     "publish": "yarn build && npm publish"
   },
   "repository": {
